@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+</head>
+<body>
+        <script>
+
+                let count = 0
+
+                const getTime = () => {
+                        let tempMinutes = Math.floor(count / 60)
+                        let hours = Math.floor(tempMinutes / 60)
+                        let minutes = tempMinutes % 60
+                        let seconds = count % 60
+                        hours = `${hours}`
+                        minutes = `${minutes}`
+                        seconds = `${seconds}`
+                        if (hours.length < 2) {
+                                hours = `0${hours}`
+                        }
+                        if (minutes.length < 2) {
+                                minutes = `0${minutes}`
+                        }
+                        if (seconds.length < 2) {
+                                seconds = `0${seconds}`
+                        }
+                        console.log(`${hours}:${minutes}:${seconds}`)
+                }
+
+                setInterval(() => {
+                        count++
+                        getTime()
+                }, 1000)
+
+        </script>
+</body>
+</html>

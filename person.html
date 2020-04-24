@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+</head>
+<body>
+        <form>
+                <p>
+                        <label for="username">username</label>
+                        <input type="text" name="username" id="username">
+                </p>
+                <p>
+                        <label for="email">email</label>
+                        <input type="email" name="email" id="email">
+                </p>
+                <p>
+                        <label for="password">password</label>
+                        <input type="password" name="password" id="password">
+                </p>
+                <p>
+                        <!-- Button for the form -->
+                        <button id="signUp">Sign Up</button>
+                </p>
+        </form>
+
+        <!-- Where the input wil ldisplay once submitted -->
+        <div id="user"></div>
+
+        <script>
+
+                // listens for the button click
+                document.getElementById('signUp').addEventListener('click', (event) => {
+                        event.preventDefault()
+                        let user = {
+                                username: document.getElementById('username').value,
+                                email: document.getElementById('email').value,
+                                password: document.getElementById('password').value,
+                        }
+                        localStorage.setItem('user', JSON.stringify(user))
+                })
+
+                if (localStorage.getItem('user')) {
+                        let user = JSON.parse(localStorage.getItem('user'))
+                        document.getElementById('user').innerHTML = `
+                        <h1>Username: ${user.username} </h1>
+                        <h2>Email: ${user.email} </h2>
+                        <h3>Password: ${user.password} </h3>
+                        `
+                }
+        </script>
+</body>
+</html>

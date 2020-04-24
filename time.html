@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+</head>
+<body>
+        
+        <button id="abort">Abort Timer</button>
+        <script>
+                
+                // or you can just simply write a console.log
+                setTimeout(() => {
+                        console.log('10 seconds left!')
+                }, 0)
+
+                setTimeout(() => {
+                        console.log('5 seconds left!')
+                }, 5000)
+
+                setTimeout(() => {
+                        console.log('2 seconds left!')
+                }, 8000)
+                
+                setTimeout(() => {
+                console.log('Time to PAY THE PIPER BABY')
+                }, 10000)
+
+                let timesUp = setTimeout 
+
+                document.getElemenyById('abort').addEventListener('click', () => {
+                        clearTimeout(timesUp)
+                })
+
+        </script>
+</body>
+</html>
