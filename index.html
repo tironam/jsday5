@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+</head>
+<body>
+        
+        <h1 id = 'greeting'></h1id>
+
+        <form>
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name">
+                <button id = "submit">Submit</button>
+        </form>
+
+        <button id="removeItem">Remove local storage item</button>
+
+        <script>
+
+                // event listener for submit button
+                document.getElementById('submit').addEventListener('click', (event) => {
+                        // keeps the form fron refreshing the page
+                        event.preventDefault()
+                        // takes the text from the input and palces it in lcoal storage
+                        localStorage.setItem('name', document.getElementById('name').value)
+                        // creates the greeting from the text in the text input
+                        document.getElementById('greeting').textcontent = `Hello my name is ${document.getElementById('name').value}`
+                        // clears out the text input
+                        document.getElementById('name').value = ' '
+                })
+
+                // event listener for remove item button
+                document.getElementById('removeItem').addEventListener('click', () => {
+                        // removes item from local storage
+                        localStorage.removeItem('name')
+                } 
+
+                // on page load or page refresh, checks to see if name exists in lcoal storage
+                if (localStorage.getItem('name')) {
+                        // creates the greeting from the text in local storage
+                document.getElementById('greeting').textcontent = `Hello my name is ${localStorage.getItem('name')}`
+                }
+
+        </script>
+</body>
+</html>
